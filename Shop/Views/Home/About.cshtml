@@ -1,7 +1,29 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    ViewBag.Title = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>About Us</h2>
+
+<!--<h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>-->
+
+<address>
+    Rishon le zion israel<br />
+    <abbr title="Phone">P:</abbr>
+    054-7660352
+</address>
+
+<div id="googleMap" style="width:50%;height:200px;"></div>
+<script>
+    function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(31.9625345, 34.7991055),
+            zoom: 17,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    }</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTXaiIASBjKalQr8ve1-y40QtOVFUPo7w&callback=myMap"></script>
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">ShlomiHalif@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">OmriNahumi@example.com</a>
+</address>
