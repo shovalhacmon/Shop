@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data;
 
 namespace Shop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181109151941_removing_Icollections")]
+    partial class removing_Icollections
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,9 +217,13 @@ namespace Shop.Data.Migrations
 
                     b.Property<bool>("IsSent");
 
+                    b.Property<int?>("OrderId1");
+
                     b.HasKey("OrderId");
 
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("OrderId1");
 
                     b.ToTable("Order");
                 });
@@ -229,8 +235,6 @@ namespace Shop.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category");
-
-                    b.Property<int?>("OrderId");
 
                     b.Property<float>("Price");
 
@@ -245,8 +249,6 @@ namespace Shop.Data.Migrations
                     b.Property<float>("Weight");
 
                     b.HasKey("ProductId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Product");
                 });
@@ -315,13 +317,10 @@ namespace Shop.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
 
-            modelBuilder.Entity("Shop.Models.Product", b =>
-                {
                     b.HasOne("Shop.Models.Order")
                         .WithMany("Products")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId1");
                 });
 #pragma warning restore 612, 618
         }

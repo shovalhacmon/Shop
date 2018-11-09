@@ -10,6 +10,6 @@ namespace Shop.Models
         public int SeasonId { get; set; }
         public string SeasonName { get; set; }
 
-        public virtual ICollection<Product> Product { get; set; }
+        //public virtual ICollection<Product> Product { get; set; }
     }
 }

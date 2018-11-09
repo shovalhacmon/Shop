@@ -49,6 +49,9 @@ namespace Shop.Controllers
         public IActionResult Create()
         {
             ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId");
+            ViewBag.Products = _context.Product.ToList()
+                .Select<Product, Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>
+                (p => new SelectListItem(p.ProductName, p.ProductId.ToString()));
             return View();
         }
 
@@ -57,7 +60,7 @@ namespace Shop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,IsSent,IsMoneyTaken")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,IsSent,IsMoneyTaken,Products")] Order order)
         {
             if (ModelState.IsValid)
             {

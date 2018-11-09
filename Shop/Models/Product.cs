@@ -39,11 +39,11 @@ namespace Shop.Models
         [DataType(DataType.Text)]
         public string Category { get; set; }
 
-        [JsonIgnore]
-        public virtual ICollection<Order> Orders { get; set; }
+        //[JsonIgnore]
+        //public virtual ICollection<Order> Orders { get; set; }
 
-        [JsonIgnore]
-        public virtual ICollection<Season> Season { get; set; }
+        //[JsonIgnore]
+        //public virtual ICollection<Season> Season { get; set; }
 
     }
 }

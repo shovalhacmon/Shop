@@ -30,6 +30,6 @@ namespace Shop.Models
         public virtual Customer Customer { get; set; }
 
         [Display(Name = "Products")]
-        public virtual DbSet<Order> Products { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }
