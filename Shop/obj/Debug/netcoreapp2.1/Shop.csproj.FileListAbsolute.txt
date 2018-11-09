@@ -52,3 +52,4 @@ C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Season
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Seasons\Details.g.cshtml.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Seasons\Edit.g.cshtml.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Seasons\Index.g.cshtml.cs
+C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

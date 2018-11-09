@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "5d4e260b0b24f9de589667e2f758164151e76b2a"
+    "signature": "7c23802ec0e9595f4e046be616d2fa85a2ab0e13"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "Shop/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNet.Mvc.Facebook": "5.1.2",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
@@ -35,6 +36,128 @@
         },
         "compile": {
           "Shop.dll": {}
+        }
+      },
+      "Facebook/6.1.4": {
+        "runtime": {
+          "lib/net45/Facebook.dll": {
+            "assemblyVersion": "6.0.10.0",
+            "fileVersion": "6.1.4.0"
+          }
+        },
+        "compile": {
+          "lib/net45/Facebook.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Mvc/5.1.2": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.1.2",
+          "Microsoft.AspNet.WebPages": "3.1.2"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Mvc.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.20129.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Mvc.Facebook/5.1.2": {
+        "dependencies": {
+          "Facebook": "6.1.4",
+          "Microsoft.AspNet.Mvc": "5.1.2",
+          "Microsoft.AspNet.Razor": "3.1.2",
+          "Microsoft.AspNet.WebApi": "5.1.2",
+          "Microsoft.AspNet.WebApi.Client": "5.2.6",
+          "Microsoft.AspNet.WebApi.Core": "5.1.2",
+          "Microsoft.AspNet.WebApi.WebHost": "5.1.2",
+          "Microsoft.AspNet.WebPages": "3.1.2",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Mvc.Facebook.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.20129.0"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.Mvc.Facebook.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Razor/3.1.2": {
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.20129.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi/5.1.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.WebHost": "5.1.2"
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.1.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.6"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.20129.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.WebHost/5.1.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.1.2"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.WebHost.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.20129.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.WebHost.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.1.2": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.1.2",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.20129.0"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.20129.0"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.20129.0"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.20129.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -425,6 +548,17 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.20105.407"
+          }
+        },
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -3494,6 +3628,62 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Facebook/6.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I21LKywRUzf7TEEka/ys1ueUFBYpu6v9mlm8ns1ooaclOk80y5YWdVaufFthDQU4xNV5Mz2Vca34DOsRlIGSTA==",
+      "path": "facebook/6.1.4",
+      "hashPath": "facebook.6.1.4.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Mvc/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-go4q3aa61AkRIHZ5Z93OyLc4MbrLQyfi3LVb0s2aH5eM1iQDUhAIID8viLLTf6jRfWVmsoLFMTHQeyTvLXfdWA==",
+      "path": "microsoft.aspnet.mvc/5.1.2",
+      "hashPath": "microsoft.aspnet.mvc.5.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Mvc.Facebook/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OMv1QwQOGYiti83Djey43zA7IXHWroVqUD/r5ocaia8taDXd3qj7IUL1AtT+nr6UsL9ZUWL6W7Si/7mPtUuKxQ==",
+      "path": "microsoft.aspnet.mvc.facebook/5.1.2",
+      "hashPath": "microsoft.aspnet.mvc.facebook.5.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Razor/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xnnz93CIZqQnJz8nKOftXdxrs/p5BdbgM/opkggZX73LhFwSnQxnHj7Kf4deKeUfQ/AwDYU9yv23W3toEm+lug==",
+      "path": "microsoft.aspnet.razor/3.1.2",
+      "hashPath": "microsoft.aspnet.razor.3.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tM6xZ6KQJl8xOSkZsS6TxUOoFDXwvV60Oy1mfjOyEhAasCrjUaoFDf+hC94neN+OlTJVI4Ab/T66g8Tc/Jp3yw==",
+      "path": "microsoft.aspnet.webapi/5.1.2",
+      "hashPath": "microsoft.aspnet.webapi.5.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Core/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AGkjGebH1M6LdNvvIr69X0YcN59p1ydq7iW95VAPCOAzegcI78OENKXmK1d7ckiZtDgh87d/2pFnLDPB+Dpy5w==",
+      "path": "microsoft.aspnet.webapi.core/5.1.2",
+      "hashPath": "microsoft.aspnet.webapi.core.5.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.WebHost/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9bCmNCSv5rbhf8nyoeM2XlAWfakoU/NGoJ3oIdMacWcTiUEbCzBtQIY3YCvJCp6/BH/KxwpjS8nysnRL0r6M+Q==",
+      "path": "microsoft.aspnet.webapi.webhost/5.1.2",
+      "hashPath": "microsoft.aspnet.webapi.webhost.5.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pokp9EyP4seLxOSxIo9SO0VBffFAdDK/PCjaogyIth7fG5bb6eqpGyr1P/3nCyYg1PCY3ulHEBQN32VqDORCmQ==",
+      "path": "microsoft.aspnet.webpages/3.1.2",
+      "hashPath": "microsoft.aspnet.webpages.3.1.2.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
       "serviceable": true,
@@ -3654,6 +3844,13 @@
       "sha512": "sha512-WkTJ/nW7R5qADbvLfZhyP8036nYbNYd6CgZUwFld0R0Kd3dmrTDtVpqfdU7uC+xwRlEga4hyeh/lSKySa+8U0g==",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.1.5",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.1.5.nupkg.sha512"
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n53z4bxLI6bly1tt4NzQx9vShfiEh3IB23vKVTFfKUOfUhbgoynhZMzn3aezHwTWUzxBmCe6j6hKHFYqDC9q9Q==",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",
