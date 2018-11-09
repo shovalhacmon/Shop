@@ -37,7 +37,6 @@ C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Produc
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Products\Details.g.cshtml.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Products\Edit.g.cshtml.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Products\Index.g.cshtml.cs
-C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Create.g.cshtml.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Delete.g.cshtml.cs
 C:\Users\shova\Source\Repos\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Details.g.cshtml.cs
