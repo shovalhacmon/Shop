@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,6 +21,28 @@ namespace Shop.Controllers
             _context = context;
         }
 
+        //Facebook API
+        private async Task<string> FacebookAPI()
+        {
+            string uri = "https://graph.facebook.com";
+            string page = "1057497281124576/feed";
+            string accessToken = "EAAER8aUNKcMBABZAlYFAk78VEfGA4kJJHrKbZBxPsq0nTHS6cF7M0FuDe2n0kul0MnMDnJrris0jsm2on8ommUYOAFCj1eRtGA5Gkod8I9vP6TbgCErbVUuZAojYeit5T26OucZAzZCOtbmzoTuXuhfwkek4V4KkDMpCBLvvNEwZDZD";
+            string message = "New item added at " + DateTime.Now + "\nGo to our shop :)";
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(uri);
+                var content = new FormUrlEncodedContent(new[]
+                {
+                        new KeyValuePair<string, string>("message", message),
+                        new KeyValuePair<string, string>("access_token", accessToken)
+                });
+                var result = await client.PostAsync(page, content);
+                return await result.Content.ReadAsStringAsync();
+
+
+            }
+        }
         // GET: Products
         public async Task<IActionResult> Index()
         {
@@ -63,6 +86,7 @@ namespace Shop.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            Task.Run(() => FacebookAPI());
             return View();
         }
 
