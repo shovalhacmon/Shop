@@ -26,6 +26,9 @@ namespace Shop.Models
         [Display(Name = "IsMoneyTaken")]
         public bool IsMoneyTaken { get; set; }
 
+        [Display(Name = "Date")]
+        public DateTime Date { get; set; }
+
         [Display(Name = "Customer")]
         public virtual Customer Customer { get; set; }
 

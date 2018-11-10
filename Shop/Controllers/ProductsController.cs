@@ -36,9 +36,9 @@ namespace Shop.Controllers
                 select new { Category = productsGroup.Key, Amount = productsGroup.Count() };
 
             Dictionary<string, int> categoriesAndAmounts = new Dictionary<string, int>();
-            categories.ForEachAsync(cat =>
+            categories.ForEachAsync(category =>
             {
-                categoriesAndAmounts.Add(cat.Category, cat.Amount);
+                categoriesAndAmounts.Add(category.Category, category.Amount);
             }).Wait();
             return categoriesAndAmounts;
         }

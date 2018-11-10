@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Shop.Data;
 using Shop.Models;
 
@@ -22,7 +23,26 @@ namespace Shop.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
+            Dictionary<int, int> ordersAmountByCustomer = GetOrdersAmountByCustomer();
+            //ViewBag.Orders = JsonConvert.SerializeObject(ordersAmountByCustomer);
+            ViewBag.Orders = ordersAmountByCustomer;
             return View(await _context.Customer.ToListAsync());
+        }
+
+        private Dictionary<int, int> GetOrdersAmountByCustomer()
+        {
+            var orders =
+                from order in _context.Order
+                join customer in _context.Customer on order.CustomerId equals customer.CustomerId
+                group order by order.CustomerId into ordersGroup
+                select new { CustomerId = ordersGroup.Key, OrdersAmount = ordersGroup.Count() };
+
+            Dictionary<int, int> customersAndOrdersAmount = new Dictionary<int, int>();
+            orders.ForEachAsync(customerAmount =>
+            {
+                customersAndOrdersAmount.Add(customerAmount.CustomerId, customerAmount.OrdersAmount);
+            }).Wait();
+            return customersAndOrdersAmount;
         }
 
         // GET: Customers/Details/5

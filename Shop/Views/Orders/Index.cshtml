@@ -25,6 +25,9 @@
                 @Html.DisplayNameFor(model => model.Customer)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
                 Price
             </th>
             <th></th>
@@ -47,6 +50,9 @@
                     @Html.DisplayFor(modelItem => item.Customer.CustomerId)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
                     @*@item.Products.Aggregate(0, (accumulator, currentProduct) => accumulator + (int)currentProduct.Price)*@
                     @*@item.Products.Count()*@
                 </td>
@@ -59,3 +65,14 @@
         }
     </tbody>
 </table>
+
+<script>
+     /*
+        orders={
+                    '1': 22,
+                    '2': 23
+                }
+     */
+    let orders= @Html.Raw(ViewBag.Orders);
+    console.log(JSON.stringify(orders, null, 3));
+</script>
