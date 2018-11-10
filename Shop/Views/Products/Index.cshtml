@@ -64,13 +64,26 @@
         }
     </tbody>
 </table>
+<link rel="stylesheet" href="~/css/CategoryAmount.css">
+<div id="graph-container">
+
+</div>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script type=text/javascript src="~/js/CatgeoryAmount.js"></script>
 <script>
     /*
         categories={
                     'Phones': 22,
                     'Computers': 23
+
+//need change categories to 
+                 '1': 22,
+                 '2': 23,
+                 and do the mapping of the category to its ID
                 }
      */
-    let categories= @Html.Raw(ViewBag.Categories)
-    console.log(JSON.stringify(categories,null,3))
+    let categories = @Html.Raw(ViewBag.Categories)
+    displayData(orders)
+    //console.log(JSON.stringify(categories,null,3))
 </script>
