@@ -23,10 +23,37 @@ namespace Shop.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
+            //<month, orders amount in this month>
             Dictionary<int, int> ordersAmountByMonth = GetOrdersAmountByMonth();
             ViewBag.Orders = JsonConvert.SerializeObject(ordersAmountByMonth);
+
+            //<orderId,orderPrice>
+            Dictionary<int, float> ordersPrices = GetOrdersPrices();
+            ViewBag.OrdersPrices = ordersPrices;
+
             var applicationDbContext = _context.Order.Include(o => o.Customer);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        //returns map of <order id, orders price>
+        private Dictionary<int, float> GetOrdersPrices()
+        {
+            var joinedOrders =
+                from orderProduct in _context.OrderProducts
+                join order in _context.Order on orderProduct.OrderId equals order.OrderId
+                join product in _context.Product on orderProduct.ProductId equals product.ProductId
+                select new { order.OrderId, Price = product.Price * orderProduct.ProductAmount };
+            var ordersGroupBy =
+                from orderProduct in joinedOrders
+                group orderProduct by orderProduct.OrderId into ordersGroup
+                select new
+                {
+                    OrderId = ordersGroup.Key,
+                    Price = ordersGroup.Sum(elem => elem.Price)
+                };
+            Dictionary<int, float> ordersPrices = new Dictionary<int, float>();
+            ordersGroupBy.ForEachAsync(order => ordersPrices.Add(order.OrderId, order.Price)).Wait();
+            return ordersPrices;
         }
 
         //returns map of <month(in the last year),orders amount>

@@ -32,7 +32,8 @@ namespace Shop.Models
         [Display(Name = "Customer")]
         public virtual Customer Customer { get; set; }
 
-        [Display(Name = "Products")]
-        public virtual DbSet<Product> Products { get; set; }
+        //[Display(Name = "Products")]
+        //public virtual DbSet<Product> Products { get; set; }
+        public ICollection<OrderProduct> OrderProduct { get; set; }
     }
 }
