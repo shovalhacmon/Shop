@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Shop.Data;
 using Shop.Models;
 
@@ -22,9 +23,25 @@ namespace Shop.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
+            Dictionary<string, int> productsByCategories = GetProductsByCategories();
+            ViewBag.Categories = JsonConvert.SerializeObject(productsByCategories);
             return View(await _context.Product.ToListAsync());
         }
 
+        private Dictionary<string, int> GetProductsByCategories()
+        {
+            var categories =
+                from product in _context.Product
+                group product by product.Category into productsGroup
+                select new { Category = productsGroup.Key, Amount = productsGroup.Count() };
+
+            Dictionary<string, int> categoriesAndAmounts = new Dictionary<string, int>();
+            categories.ForEachAsync(cat =>
+            {
+                categoriesAndAmounts.Add(cat.Category, cat.Amount);
+            }).Wait();
+            return categoriesAndAmounts;
+        }
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -149,5 +166,7 @@ namespace Shop.Controllers
         {
             return _context.Product.Any(e => e.ProductId == id);
         }
+
+
     }
 }
