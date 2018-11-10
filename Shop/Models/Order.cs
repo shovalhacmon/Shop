@@ -26,10 +26,14 @@ namespace Shop.Models
         [Display(Name = "IsMoneyTaken")]
         public bool IsMoneyTaken { get; set; }
 
+        [Display(Name = "Date")]
+        public DateTime Date { get; set; }
+
         [Display(Name = "Customer")]
         public virtual Customer Customer { get; set; }
 
-        [Display(Name = "Products")]
-        public virtual DbSet<Order> Products { get; set; }
+        //[Display(Name = "Products")]
+        //public virtual DbSet<Product> Products { get; set; }
+        public ICollection<OrderProduct> OrderProduct { get; set; }
     }
 }

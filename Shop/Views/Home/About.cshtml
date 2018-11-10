@@ -16,11 +16,27 @@
 <div id="googleMap" style="width:50%;height:200px;"></div>
 <script>
     function myMap() {
-        var mapProp = {
+        let mapProp = {
             center: new google.maps.LatLng(31.9625345, 34.7991055),
             zoom: 17,
         };
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        let map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(41.9625345, 40.7991055)
+        });
+        //let geocoder = new google.maps.Geocoder();
+        //geocoder.geocode({ 'address': 'Shapira 18, Rishon LeZiyon' }, (results, status) => {
+        //    if (status == 'OK') {
+        //        map.setCenter(results[0].geometry.location);
+        //        var marker = new google.maps.Marker({
+        //            map: map,
+        //            position: results[0].geometry.location
+        //        });
+        //    } else {
+        //        alert('Geocode was not successful for the following reason: ' + status);
+        //    }
+        //});
     }</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTXaiIASBjKalQr8ve1-y40QtOVFUPo7w&callback=myMap"></script>
 <address>

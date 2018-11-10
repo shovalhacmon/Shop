@@ -211,23 +211,32 @@ namespace Shop.Data.Migrations
 
                     b.Property<int>("CustomerId");
 
+                    b.Property<DateTime>("Date");
+
                     b.Property<bool>("IsMoneyTaken");
 
                     b.Property<bool>("IsSent");
-
-                    b.Property<int?>("OrderId1");
-
-                    b.Property<int?>("ProductId");
 
                     b.HasKey("OrderId");
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("OrderId1");
+                    b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("Shop.Models.OrderProduct", b =>
+                {
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<int>("ProductAmount");
+
+                    b.HasKey("OrderId", "ProductId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Order");
+                    b.ToTable("OrderProducts");
                 });
 
             modelBuilder.Entity("Shop.Models.Product", b =>
@@ -261,13 +270,9 @@ namespace Shop.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ProductId");
-
                     b.Property<string>("SeasonName");
 
                     b.HasKey("SeasonId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Season");
                 });
@@ -320,24 +325,22 @@ namespace Shop.Data.Migrations
             modelBuilder.Entity("Shop.Models.Order", b =>
                 {
                     b.HasOne("Shop.Models.Customer", "Customer")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Shop.Models.Order")
-                        .WithMany("Products")
-                        .HasForeignKey("OrderId1");
-
-                    b.HasOne("Shop.Models.Product")
-                        .WithMany("Orders")
-                        .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("Shop.Models.Season", b =>
+            modelBuilder.Entity("Shop.Models.OrderProduct", b =>
                 {
-                    b.HasOne("Shop.Models.Product")
-                        .WithMany("Season")
-                        .HasForeignKey("ProductId");
+                    b.HasOne("Shop.Models.Order", "Order")
+                        .WithMany("OrderProduct")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Shop.Models.Product", "Product")
+                        .WithMany("OrderProduct")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
