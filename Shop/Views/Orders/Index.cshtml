@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Orders</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -65,14 +65,15 @@
         }
     </tbody>
 </table>
+<link rel="stylesheet" href="~/css/amountsByMonth.css">
+<div id="graph-container">
 
+</div>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script type=text/javascript src="~/js/amountsByMonth.js"></script>
 <script>
-     /*
-        orders={
-                    '1': 22,
-                    '2': 23
-                }
-     */
     let orders= @Html.Raw(ViewBag.Orders);
-    console.log(JSON.stringify(orders, null, 3));
+    displayData(orders)
 </script>
+

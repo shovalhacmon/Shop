@@ -23,8 +23,8 @@ namespace Shop.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
+            //<customerId, ordersAmount>
             Dictionary<int, int> ordersAmountByCustomer = GetOrdersAmountByCustomer();
-            //ViewBag.Orders = JsonConvert.SerializeObject(ordersAmountByCustomer);
             ViewBag.Orders = ordersAmountByCustomer;
             return View(await _context.Customer.ToListAsync());
         }
