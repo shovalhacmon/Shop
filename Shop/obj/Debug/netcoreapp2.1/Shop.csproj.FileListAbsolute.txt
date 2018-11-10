@@ -162,3 +162,4 @@ C:\Users\Ilan\Source\Repos\Shop2\Shop\obj\Debug\netcoreapp2.1\Shop.Views.pdb
 C:\Users\Ilan\Source\Repos\Shop2\Shop\obj\Debug\netcoreapp2.1\Shop.dll
 C:\Users\Ilan\Source\Repos\Shop2\Shop\obj\Debug\netcoreapp2.1\Shop.pdb
 C:\Users\Ilan\Source\Repos\Shop2\Shop\obj\Debug\netcoreapp2.1\Shop.csproj.CopyComplete
+C:\Users\Ilan\Source\Repos\Shop2\Shop\obj\Debug\netcoreapp2.1\Shop.csprojAssemblyReference.cache
