@@ -53,7 +53,7 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.Raw(ViewBag.OrdersPrices[item.OrderId])
+                    @Html.Raw(((Dictionary<int, float>)ViewData["OrdersPrices"]).GetValueOrDefault(item.OrderId))
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |

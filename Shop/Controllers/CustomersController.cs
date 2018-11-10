@@ -25,7 +25,7 @@ namespace Shop.Controllers
         {
             //<customerId, ordersAmount>
             Dictionary<int, int> ordersAmountByCustomer = GetOrdersAmountByCustomer();
-            ViewBag.Orders = ordersAmountByCustomer;
+            ViewData["Orders"] = ordersAmountByCustomer;
             return View(await _context.Customer.ToListAsync());
         }
 

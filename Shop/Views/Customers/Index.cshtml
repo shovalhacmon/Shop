@@ -46,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Password)
                 </td>
                 <td>
-                    @Html.Raw(ViewBag.Orders[item.CustomerId])
+                    @Html.Raw(((Dictionary<int, int>)ViewData["Orders"]).GetValueOrDefault(item.CustomerId))
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |

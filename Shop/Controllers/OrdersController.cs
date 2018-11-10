@@ -29,7 +29,7 @@ namespace Shop.Controllers
 
             //<orderId,orderPrice>
             Dictionary<int, float> ordersPrices = GetOrdersPrices();
-            ViewBag.OrdersPrices = ordersPrices;
+            ViewData["OrdersPrices"] = ordersPrices;
 
             var applicationDbContext = _context.Order.Include(o => o.Customer);
             return View(await applicationDbContext.ToListAsync());
