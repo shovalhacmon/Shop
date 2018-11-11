@@ -47,6 +47,7 @@ namespace Shop.Controllers
             //        _context.Add(op);
             //    });
             //    _context.SaveChangesAsync().Wait();
+            ViewBag.UserIsAdmin = Authorization.IsAdmin(User, _context);
             return View();
         }
 
