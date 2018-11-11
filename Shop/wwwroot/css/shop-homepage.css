@@ -1,0 +1,93 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+	font-family: 'Righteous', cursive;
+	color:white;
+  padding-top: 54px;
+background:
+linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+background-color: #131313;
+background-size: 20px 20px;
+}
+.navbar
+{
+border-radius: 0px 0px 10px 10px;
+	   -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+	 font-style: italic;
+}
+.footer
+{
+border-radius: 10px 10px 0px 0px;
+	   -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+/* Non essential CSS - Just for example centering */
+
+html, body {
+width: 100%;
+height: 100%;
+margin: 0;
+}
+
+.center-outer {
+display: table;
+width: 100%;
+height: 100%;
+}
+
+.center-inner {
+display: table-cell;
+vertical-align: middle;
+text-align: center;
+}
+
+.card-text {
+    color: green;
+}
+h5 {
+    color: green;
+    font-weight: bold;
+}
+.divlink{
+    color:black;
+    font-weight:bold;
+}
+
+button {
+    color: red;
+    border-radius: 25px;
+}
+.green {
+    color:green;
+}
+a{
+    color:green;
+}
+a:hover {
+    color: black;
+
+}
+li
+{
+    font-size:20px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+

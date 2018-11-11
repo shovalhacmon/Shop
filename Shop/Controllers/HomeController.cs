@@ -20,6 +20,8 @@ namespace Shop.Controllers
 
         public IActionResult Index()
         {
+
+    
             //TODO: remove: Seed orders and products
             //    List<OrderProduct> total = _context.OrderProducts.ToList();
             //    List<Order> orders = _context.Order.ToList();
@@ -47,7 +49,17 @@ namespace Shop.Controllers
             //        _context.Add(op);
             //    });
             //    _context.SaveChangesAsync().Wait();
-            return View();
+            ViewData["Categories"] = GetCategories();
+            return View(_context.Product.ToList());
+        }
+
+        private List<string> GetCategories()
+        {
+            return (from product in _context.Product
+                    group product by product.Category into productsGroup
+                    select productsGroup.Key).ToList();
+
+
         }
 
         public IActionResult About()
