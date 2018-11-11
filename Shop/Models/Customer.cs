@@ -14,6 +14,10 @@ namespace Shop.Models
         [DataType(DataType.Text)]
         public string CustomerName { get; set; }
 
+        [Display(Name = "Address")]
+        [DataType(DataType.Text)]
+        public string Address { get; set; }
+
         public bool isManager { get; set; }
 
         [Display(Name = "Email")]

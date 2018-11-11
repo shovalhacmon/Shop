@@ -25,21 +25,33 @@
             map: map,
             position: new google.maps.LatLng(41.9625345, 40.7991055)
         });
-        let geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': 'Shapira 18, Rishon LeZiyon' }, (results, status) => {
-            if (status == 'OK') {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
+
+        let displayAddresses = (addresses) => {
+
+            addresses.forEach(function (currentAddress) {
+
+                let geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': currentAddress }, (results, status) => {
+                    if (status == 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
                 });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-        });
-    }</script>
+            });
+        }
+        let add =@Json.Serialize(ViewData["Addresses"]);
+        console.log(add);
+        displayAddresses(add);
+    }
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4d-A1lu1OolyY2QnnRx36MlcQ4QqWeEc&callback=myMap"></script>
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">ShlomiHalif@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">OmriNahumi@example.com</a>
 </address>
+

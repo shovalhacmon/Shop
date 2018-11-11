@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Shop.Models.Customer>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Customer";
 }
 
 <h2>Index</h2>
@@ -27,6 +27,9 @@
             <th>
                 Orders Amount
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -47,6 +50,9 @@
                 </td>
                 <td>
                     @Html.Raw(((Dictionary<int, int>)ViewData["Orders"]).GetValueOrDefault(item.CustomerId))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |

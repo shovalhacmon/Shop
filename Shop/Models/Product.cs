@@ -39,7 +39,7 @@ namespace Shop.Models
         [DataType(DataType.Text)]
         public string Category { get; set; }
 
-        //[JsonIgnore]
+        [JsonIgnore]
         public ICollection<OrderProduct> OrderProduct { get; set; }
 
         //[JsonIgnore]

@@ -53,7 +53,7 @@ namespace Shop.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
+            ViewData["Addresses"] = _context.Customer.Select(cus => cus.Address).ToList();
             return View();
         }
 
